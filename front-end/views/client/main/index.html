@@ -1,5 +1,328 @@
-MAIN
-<$ userName $>
-<div class="bootstrap-switch-square">
-  <input type="checkbox" checked data-toggle="switch" id="custom-switch-03" data-on-text="<span class='fui-check'></span>" data-off-text="<span class='fui-cross'></span>" />
-</div>
+  <!-- <section ng-include="'commons/header.html'"></section> -->
+
+  <div class="container-fluid main">
+    <section>
+      <h2 class="text-center teachingCategory">
+        <span class="label label-default">TEACHING PERSONNEL CATEGORY</span>
+      </h2>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="tile frame">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.{{one}}</p>
+              <input tab-switches type="checkbox" data-name="teaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="teaching" data-value="one"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile frame">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize {{vm.one}}one</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="teaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="teaching" data-value="two"/>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile frame">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="teaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="teaching" data-value="three"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row row-centered">
+          <div class="col-lg-4 col-centered">
+            <div class="tile frame">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="teaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="teaching" data-value="four"/>
+            </div>
+          </div>
+          <div class="col-lg-4 col-centered">
+            <div class="tile frame">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="teaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="teaching" data-value="five"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <!-- <h2 class="text-center nonTeachingCategory">NON-TEACHING PERSONNEL CATEGORY</h2> -->
+      <h2 class="text-center nonTeachingCategory">
+        <span class="label label-default">NON-TEACHING PERSONNEL CATEGORY</span>
+      </h2>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile nonTeaching">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.</p>
+              <input tab-switches type="checkbox" data-name="nonTeaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="nonTeaching" data-value="one"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile nonTeaching">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="nonTeaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="nonTeaching" data-value="two"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile nonTeaching">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="nonTeaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="nonTeaching" data-value="three"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row row-centered">
+          <div class="col-lg-4 col-centered">
+            <div class="tile nonTeaching">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="nonTeaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="nonTeaching" data-value="four"/>
+            </div>
+          </div>
+          <div class="col-lg-4 col-centered">
+            <div class="tile nonTeaching">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="nonTeaching" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="nonTeaching" data-value="five"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <!-- <h3 class="text-center studentCategory">STUDENT CATEGORY</h3> -->
+      <h2 class="text-center studentCategory">
+        <span class="label label-default">STUDENT CATEGORY</span>
+      </h2>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.</p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="one"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="two"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="three"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.</p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="four"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="five"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="six"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.</p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="seven"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="eight"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="nine"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row row-centered">
+          <div class="col-lg-4 col-centered">
+            <div class="tile student">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="student" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="student" data-value="ten"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <!-- <h3 class="text-center orgCategory">ORGANIZATION CATEGORY</h3> -->
+      <h2 class="text-center orgCategory">
+        <span class="label label-default">ORGANIZATION CATEGORY</span>
+      </h2>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.</p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="one"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="two"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="three"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Web Oriented</h3>
+              <p>100% convertable to HTML/CSS layout.</p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="four"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Easy to Customize</h3>
+              <p>Vector-based shapes and minimum of layer styles.</p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="five"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="six"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row row-centered">
+          <div class="col-lg-4 col-centered">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="seven"/>
+            </div>
+          </div>
+          <div class="col-lg-4 col-centered">
+            <div class="tile org">
+              <img src="/img/love.jpg" class="img-rounded img-responsive">
+              <h3 class="frame-title">Color Swatches</h3>
+              <p>Easy to add or change elements. </p>
+              <input tab-switches type="checkbox" data-name="org" data-toggle="switch"
+                data-on-color="primary" data-off-color="default" ng-model="org" data-value="eight"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <button class="btn btn-success" ng-click="vm.votersSubmit()">Submit</button>
+  </div>

@@ -1,3 +1,27 @@
+.addVoters {
+  height: 100vh;
+  background-color: #2c3e50;
+}
+.addVoters .container {
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.addVoters .center {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.addVoters .center .inputHelpBlock {
+  color: #fff;
+}
+.addVoters .center .btn {
+  width: 100%;
+}
 .header .ion-ios-home {
   font-size: 24px;
 }
@@ -35,15 +59,143 @@
     border-radius: 0;
   }
 }
+.loginUserAccount .form-control {
+  padding-left: 40px;
+}
+.loginUserAccount .form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.loginUserAccount .form-group .col-xs-12 {
+  padding: 0;
+  margin-bottom: 20px;
+}
+.loginUserAccount .form-control + .glyphicon {
+  position: absolute;
+  left: 0;
+  padding: 10px 12px;
+}
+.loginUserAccount .modal-footer {
+  border-top: 0;
+}
+.loginUserAccount .modal-footer input {
+  width: 100%;
+}
+.votersLogin {
+  height: 100vh;
+  background-color: #2c3e50;
+}
+.votersLogin .container {
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.votersLogin .center {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.votersLogin .center .inputHelpBlock {
+  color: #fff;
+}
+.votersLogin .center .btn {
+  width: 100%;
+}
+.main .row-centered {
+  text-align: center;
+}
+.main .col-centered {
+  display: inline-block;
+  float: none;
+/* reset the text-align */
+  text-align: left;
+/* inline-block space fix */
+  margin-right: 0;
+}
+.main .frame {
+  background-color: #e67e22;
+}
+.main .frame h3,
+.main .frame p {
+  color: #fff;
+}
+.main .nonTeaching {
+  background-color: #e74c3c;
+}
+.main .nonTeaching h3,
+.main .nonTeaching p {
+  color: #fff;
+}
+.main .student {
+  background-color: #d35400;
+}
+.main .student h3,
+.main .student p {
+  color: #fff;
+}
+.main .org {
+  background-color: #c0392b;
+}
+.main .org h3,
+.main .org p {
+  color: #fff;
+}
+.main .teachingCategory {
+  color: #e67e22;
+}
+.main .teachingCategory .label-default {
+  background-color: #e67e22;
+}
+.main .nonTeachingCategory {
+  color: #e74c3c;
+}
+.main .nonTeachingCategory .label-default {
+  background-color: #e74c3c;
+}
+.main .studentCategory {
+  color: #d35400;
+}
+.main .studentCategory .label-default {
+  background-color: #d35400;
+}
+.main .orgCategory {
+  color: #c0392b;
+}
+.main .orgCategory .label-default {
+  background-color: #c0392b;
+}
+.register .form-control {
+  padding-left: 40px;
+}
+.register .form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.register .form-group .col-xs-12 {
+  padding: 0;
+  margin-bottom: 20px;
+}
+.register .form-control + .glyphicon {
+  position: absolute;
+  left: 0;
+  padding: 10px 12px;
+}
+.register .modal-footer {
+  border-top: 0;
+}
+.register .modal-footer input {
+  width: 100%;
+}
 .am-fade-and-scale {
   -webkit-animation-duration: 0.3s;
-  -ms-animation-duration: 0.3s;
   animation-duration: 0.3s;
   -webkit-animation-timing-function: ease-in-out;
-  -ms-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: backwards;
-  -ms-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
 }
 .am-fade-and-scale.ng-enter,
@@ -51,48 +203,35 @@
 .am-fade-and-scale.ng-hide-remove,
 .am-fade-and-scale.ng-move {
   -webkit-animation-name: fadeAndScaleIn;
-  -ms-animation-name: fadeAndScaleIn;
   animation-name: fadeAndScaleIn;
 }
 .am-fade-and-scale.ng-leave,
 .am-fade-and-scale.am-fade-and-scale-remove,
 .am-fade-and-scale.ng-hide {
   -webkit-animation-name: fadeAndScaleOut;
-  -ms-animation-name: fadeAndScaleOut;
   animation-name: fadeAndScaleOut;
 }
 .am-fade-and-scale.ng-enter {
   visibility: hidden;
   -webkit-animation-name: fadeAndScaleIn;
-  -ms-animation-name: fadeAndScaleIn;
   animation-name: fadeAndScaleIn;
   -webkit-animation-play-state: paused;
-  -ms-animation-play-state: paused;
   animation-play-state: paused;
 }
 .am-fade-and-scale.ng-enter.ng-enter-active {
   visibility: visible;
   -webkit-animation-play-state: running;
-  -ms-animation-play-state: running;
   animation-play-state: running;
 }
 .am-fade-and-scale.ng-leave {
   -webkit-animation-name: fadeAndScaleOut;
-  -ms-animation-name: fadeAndScaleOut;
   animation-name: fadeAndScaleOut;
   -webkit-animation-play-state: paused;
-  -ms-animation-play-state: paused;
   animation-play-state: paused;
 }
 .am-fade-and-scale.ng-leave.ng-leave-active {
   -webkit-animation-play-state: running;
-  -ms-animation-play-state: running;
   animation-play-state: running;
-}
-.modal-backdrop {
-  opacity: 0.6;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60);
 }
 @-webkit-keyframes fadeAndScaleIn {
   from {
@@ -100,7 +239,6 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: scale(0.7);
-    -ms-transform: scale(0.7);
     transform: scale(0.7);
   }
   to {
@@ -116,7 +254,6 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: scale(0.7);
-    -ms-transform: scale(0.7);
     transform: scale(0.7);
   }
   to {
@@ -138,7 +275,6 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: scale(0.7);
-    -ms-transform: scale(0.7);
     transform: scale(0.7);
   }
 }
@@ -154,7 +290,6 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: scale(0.7);
-    -ms-transform: scale(0.7);
     transform: scale(0.7);
   }
 }

@@ -1,0 +1,21 @@
+
+<section class="addVoters">
+  <div class=container>
+    <div class="col-sm-6">
+      <alert-info text-center></alert-info>
+    </div>
+  </div>
+
+  <div class="center">
+    <form name="votersForm" ng-submit="vm.addVoters(votersForm)">
+      <div class="form-group" ng-class="{'has-error': votersForm.votersId.$error.number}">
+        <label type="text" for="inputHelpBlock" class="inputHelpBlock">Student/Employee No:.</label>
+        <input type="text" id="votersId" class="form-control" name="votersId" autofocus ng-model="vm.VotersId" is-number="vm.VotersId">
+        <div class='help-block' ng-show="votersForm.votersId.$error.number">
+          Not a Number
+        </div>
+      </div>
+      <input class="btn btn-success" value="ADD" ng-click="vm.addVoters(votersForm)"/>
+    </form>
+  </div>
+</section>

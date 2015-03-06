@@ -1,53 +1,81 @@
 (function() {
   'use strict';
 
-  var node = app_require( 'services/module.config' );
+  var node = appRequire('services/module.config');
 
-  module.exports = function( passport ) {
-    passport.serializeUser(function( user, done ) {
-      done( null, user._id );
-    });
-
-    passport.use( 'local-login', new node.LocalStrategy({
+  module.exports = function(passport) {
+    passport.use('local-login', new node.LocalStrategy({
       usernameField: 'email'
-    }, function( email, password, done ) {
-      node.mongoDB( node, node.config.dbName )
-      .then(function( connection ) {
+    }, function(email, password, done) {
+      node.mongoDB(node, node.config.dbName)
+      .then(function(connection) {
         node.User.findOne({
           email: email
-        }, function( err, user ) {
-          if( err ) return done(err);
-          if( !user ) return done( null, false, {
-            message: 'Wrong email/password'
-          });
-
-          user.comparePasswords( password, function( err, isMatch ) {
-            if( err ) return done(err);
-            if( !isMatch ) return done( null, false, {
+        }, function(err, user) {
+          if (err) {return done(err);}
+          if (!user) {
+            return done(null, false, {
               message: 'Wrong email/password'
             });
-            return done( null, user);
+          }
+          user.comparePasswords(password, function(err, isMatch) {
+            if (err) {return done(err);}
+            if (!isMatch) {
+              return done(null, false, {
+                message: 'Wrong email/password'
+              });
+            }
+            return done(null, user);
           });
         });
       });
     }));
 
-    passport.use( 'local-register', new node.LocalStrategy({
+    passport.use('local-votersLogin', new node.LocalStrategy({
+      usernameField: 'votersId'
+    }, function(votersId, password, done) {
+      console.log('jories');
+      node.mongoDB(node, node.config.dbName)
+      .then(function(connection) {
+        node.Voters.findOne({
+          votersId: votersId
+        }, function(err, voters) {
+          console.log(voters);
+          if (err) {return done(err);}
+          if (!voters) {
+            return done(null, false, {
+              message: 'Wrong email/password'
+            });
+          }
+          // user.comparePasswords(password, function(err, isMatch) {
+          //   if (err) {return done(err);}
+          //   if (!isMatch) {
+          //     return done(null, false, {
+          //       message: 'Wrong email/password'
+          //     });
+          //   }
+          //   return done(null, user);
+          // });
+        });
+      });
+    }));
+
+    passport.use('local-register', new node.LocalStrategy({
       usernameField: 'email',
       passReqToCallback: true
-    }, function( req, email, password, done ) {
-      node.mongoDB( node, node.config.dbName )
-        .then(function( connection ) {
+    }, function(req, email, password, done) {
+      node.mongoDB(node, node.config.dbName)
+        .then(function(connection) {
           var newUser = node.User({
             email: email,
             password: password,
             username: req.body.username
           });
           return newUser;
-        }).then( function( user ) {
+        }).then(function(user) {
             user.save(function(err) {
-              if( err ) return done( null, false );
-              done( null, user );
+             if (err) {return done(null, false);}
+              done(null, user);
           });
         });
     }));

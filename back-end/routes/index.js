@@ -1,9 +1,8 @@
 (function() {
   'use strict';
 
-  var node = app_require('services/module.config'),
+  var node = appRequire('services/module.config'),
     router = node.express.Router();
-
 
   router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
@@ -11,7 +10,12 @@
   });
 
   router.get('*', node.xPoweredBy, function(req, res) {
-    res.render('index.html');
+    if (process.env.NODE_ENV === 'production') {
+      res.render('index.html');
+    } else {
+      res.render('index.html');
+    }
+
   });
 
   module.exports = router;

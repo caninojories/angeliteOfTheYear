@@ -1,0 +1,16 @@
+<section class="votersLogin">
+  <div class=container>
+    <div class="col-sm-8">
+      <alert-info text-center></alert-info>
+    </div>
+  </div>
+  <div class="center">
+    <form name="votersLoginForm" ng-submit="vm.votersLogin()">
+      <div class="form-group">
+        <label type="text" for="inputHelpBlock" class="inputHelpBlock">Student/Employee No:.</label>
+        <input type="text" class="form-control" name="votersId" aria-describedby="helpBlock" ng-model="vm.votersId">
+      </div>
+      <input type="submit" class="btn btn-success" value="Log-in"/>
+    </form>
+  </div>
+</section>

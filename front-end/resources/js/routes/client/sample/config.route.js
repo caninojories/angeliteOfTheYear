@@ -5,6 +5,7 @@
     .module('app.sample')
     .run(appRun);
 
+    appRun.$inject = ['routehelper'];
     function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }
@@ -17,9 +18,9 @@
           templateUrl: '/client/sample/index.html',
           controller: 'Sample as vm',
           title: 'Sample',
-          resolve: {
-            flatUi: function( viewContentLoaded ) {
-              viewContentLoaded.carouselScript();      
+          resolve: {/* @ngInject */
+            flatUi: function(viewContentLoaded) {
+              viewContentLoaded.carouselScript();
             }
           }
         }

@@ -23,7 +23,7 @@
         //'app.avengers',
         'app.main',
         'app.sample',
-
-
+        'app.addVoters',
+        'app.view'
     ]);
 })();

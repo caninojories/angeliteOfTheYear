@@ -8,42 +8,50 @@
     };
 
     angular
-      .module( 'app.core' )
-      .value( 'config', config )
+      .module('app.core')
+      .value('config', config)
       .config(configure)
-      .config( toastrConfig )
-      .config( registerNsignInConfig );
+      .config(toastrConfig)
+      .config(registerNsignInConfig);
 
-
+    toastrConfig.$inject = ['toastr'];
     /* @ngInject */
     function toastrConfig(toastr) {
         toastr.options.timeOut = 4000;
         toastr.options.positionClass = 'toast-bottom-right';
     }
 
-    function registerNsignInConfig( $authProvider, cfpLoadingBarProvider ) {
+    registerNsignInConfig.$inject = ['$authProvider', 'cfpLoadingBarProvider'];
+    /* @ngInject */
+    function registerNsignInConfig($authProvider, cfpLoadingBarProvider) {
       cfpLoadingBarProvider.latencyThreshold = 100;
-      $authProvider.loginUrl    = 'http://localhost:3000/userApi/userLogIn';
-      $authProvider.signupUrl   = 'http://localhost:3000/userApi/userRegister';
-      $authProvider.tokenPrefix = 'rappler';
+      $authProvider.loginUrl    = window.location.origin + '/userApi/userLogIn';
+      $authProvider.loginUrl    = window.location.origin + '/votersApi/votersLogin';
+      $authProvider.signupUrl   = window.location.origin + '/userApi/userRegister';
+      $authProvider.tokenPrefix = 'magens';
 
       $authProvider.facebook({
         clientId: '789445017793242',
-        url: 'http://localhost:3000/userApi/logInUserFacebook'
+        url: window.location.origin + '/userApi/logInUserFacebook'
       });
 
       $authProvider.google({
         clientId: '514855305579-vmrkir3l76c0v2t6b5mtnphh38uf9irp.apps.googleusercontent.com',
-        url: 'http://localhost:3000/userApi/logInUserGoogle'
+        url: window.location.origin + '/userApi/logInUserGoogle'
       });
     }
 
+    configure.$inject = ['$httpProvider', '$locationProvider', '$logProvider', '$urlRouterProvider',
+      '$stateProvider', 'RestangularProvider', 'exceptionHandlerProvider', 'routehelperConfigProvider'];
     /* @ngInject */
-    function configure ( $httpProvider, $locationProvider, $logProvider, $urlRouterProvider, $stateProvider,
-      exceptionHandlerProvider, routehelperConfigProvider ) {
+    function configure ($httpProvider, $locationProvider, $logProvider, $urlRouterProvider,
+      $stateProvider, RestangularProvider, exceptionHandlerProvider, routehelperConfigProvider) {
+        RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
 
         $locationProvider.html5Mode(true);
-        if ($logProvider.debugEnabled)  $logProvider.debugEnabled(true);
+        if ($logProvider.debugEnabled) {
+          $logProvider.debugEnabled(true);
+        }
 
         routehelperConfigProvider.config.$stateProvider = $stateProvider;
         routehelperConfigProvider.config.$urlRouterProvider = $urlRouterProvider;

@@ -2,11 +2,12 @@
   'use strict';
 
   angular
-    .module( 'app.main' )
-    .run( appRun );
+    .module('app.main')
+    .run(appRun);
 
-    function appRun( routehelper ) {
-      routehelper.configureRoutes( getRoutes() );
+    appRun.$inject = ['routehelper'];
+    function appRun(routehelper) {
+      routehelper.configureRoutes(getRoutes());
     }
 
     function getRoutes() {
