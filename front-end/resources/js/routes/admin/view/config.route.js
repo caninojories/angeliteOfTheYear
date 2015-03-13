@@ -18,20 +18,25 @@
           templateUrl: '/admin/view/index.html',
           controller: 'View as vm',
           title: 'View',
-          resolve: {
-            result: function getVotersResult($q, commonsDataService, votersServiceApi) {
-              return $q.all([getVotersResultCallback()])
+          resolve: {/* @ngInject */
+            authenticated: function getAccessType($location, $q, commonsDataService, userInfoServiceApi) {
+              return $q.all([getAccessTypeCallback()])
                 .then(function(response) {
-                  return response;
+                  if(response[0].data === null) {
+                    return $location.path('/login');
+                  }
+                  if(response[0].accessType !== 'admin') {
+                    $location.path('/login');
+                  }
                 });
 
-              function getVotersResultCallback() {
-                return commonsDataService
-                  .httpGETLIST('votersResult', {}, votersServiceApi)
-                  .then(function(response) {
-                    return response;
-                  });
-              }
+                function getAccessTypeCallback() {
+                  return commonsDataService
+                    .httpGET('userInfo', {}, userInfoServiceApi)
+                    .then(function(response) {
+                      return response;
+                    });
+                }
             }
           }
         }

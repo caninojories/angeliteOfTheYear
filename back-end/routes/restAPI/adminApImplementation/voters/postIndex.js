@@ -11,7 +11,7 @@
     };
 
     io.mongoDB(io.config.dbName)
-      .then(io.save(options));
+      .then(io.save.all(options));
   };
 
   exports.votersLogin = function(req, res, next) {
@@ -21,7 +21,6 @@
           .findOne({votersId: req.body.votersId})
           .exec()
           .then(function(voter) {
-            console.log(voter);
             if(!voter) {return res.json(401, 'You are not yet registered');}
             io.createSendToken(io, voter, res);
           });

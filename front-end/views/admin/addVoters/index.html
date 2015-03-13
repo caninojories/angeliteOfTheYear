@@ -1,8 +1,9 @@
 
 <section class="addVoters">
+  <section ng-include="'commons/header.html'"></section>
   <div class=container>
-    <div class="col-sm-6">
-      <alert-info text-center></alert-info>
+    <div class="col-sm-7">
+      <alert-voters-add text-center></alert-voters-add>
     </div>
   </div>
 
@@ -15,7 +16,7 @@
           Not a Number
         </div>
       </div>
-      <input class="btn btn-success" value="ADD" ng-click="vm.addVoters(votersForm)"/>
+      <input type="submit" class="btn btn-success" value="ADD"/>
     </form>
   </div>
 </section>

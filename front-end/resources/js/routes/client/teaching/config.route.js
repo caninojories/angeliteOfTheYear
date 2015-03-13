@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.main')
+    .module('app.teaching')
     .run(appRun);
 
     appRun.$inject = ['routehelper'];
@@ -12,12 +12,11 @@
 
     function getRoutes() {
       return [{
-        state: 'main',
+        state: 'teaching',
         config: {
-          url: '/',
-          templateUrl: '/client/main/index.html',
-          controller: 'Main as vm',
-          title: 'Main'
+          url: '/teaching',
+          templateUrl: '/client/teaching/index.html',
+          controller: 'Teaching as vm'
         }
       }];
     }

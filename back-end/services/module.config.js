@@ -55,7 +55,7 @@
     url               : require('url'),
 
     port              : process.env.PORT || 3000,
-    environment       : process.env.NODE_ENV || 'development',
+    environment       : process.env.NODE_ENV || 'production',
 
     faviconPath       : rootPath + 'front-end/resources/favicon.ico',
     nunjucksPath      : path.join(rootPath, 'front-end/views'),

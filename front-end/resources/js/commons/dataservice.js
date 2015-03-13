@@ -5,14 +5,15 @@
     .module('app.commons')
     .factory('commonsDataService', commonsDataService);
 
-    commonsDataService.$inject = ['authToken',  'exception', 'Restangular', 'userInfoServiceApi'];
+    commonsDataService.$inject = ['authToken',  'exception', 'Restangular', 'userInfoServiceApi', 'strapAlert'];
 
     /* @ngInject */
-    function commonsDataService(authToken, exception, Restangular, userInfoServiceApi) {
+    function commonsDataService(authToken, exception, Restangular, userInfoServiceApi, strapAlert) {
       var service = {
         authorize   : authorize,
         checkEmail  : checkEmail,
         httpGETLIST : httpGETLIST,
+        httpGET     : httpGET,
         httpPOST    : httpPOST,
         httpPUT     : httpPUT
       };
@@ -50,6 +51,19 @@
         }
       }
 
+      function httpGET(api, param, apiService) {
+        return apiService.one( api )
+          .get(param)
+          .then( httpGETCallback )
+          .catch(function( message ){
+
+          });
+
+          function httpGETCallback( response, status, header, config ) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
       function httpGETLIST(api, param, apiService) {
         return apiService.all( api )
           .getList(param)
@@ -64,12 +78,19 @@
       }
 
       function httpPOST(api, param, apiService) {
-        console.log(api, param);
         return apiService.all(api)
           .post(param)
           .then(httpPOSTCallback)
           .catch(function(message) {
-            return message.data;
+            /** Server Error **/
+            /*
+              message
+              data    = use for $log
+              title   = use for toaster
+             */
+            //exception.catcher('Something Went Wrong', message, 'Server Error');
+            //return 'Server Error';
+            return message;
           });
 
         function httpPOSTCallback(response, status, header, config) {

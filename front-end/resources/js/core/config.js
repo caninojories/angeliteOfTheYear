@@ -3,7 +3,7 @@
 
     var config = {
       appErrorPrefix: '[Magens Error] ', //Configure the exceptionHandler decorator
-      appTitle: 'UDAYS Pageant: @by League of Outstanding Programmers',
+      appTitle: 'Angelite: Made @by League of Outstanding Programmers',
       version: '0.0.0'
     };
 
@@ -25,10 +25,12 @@
     /* @ngInject */
     function registerNsignInConfig($authProvider, cfpLoadingBarProvider) {
       cfpLoadingBarProvider.latencyThreshold = 100;
-      $authProvider.loginUrl    = window.location.origin + '/userApi/userLogIn';
-      $authProvider.loginUrl    = window.location.origin + '/votersApi/votersLogin';
-      $authProvider.signupUrl   = window.location.origin + '/userApi/userRegister';
-      $authProvider.tokenPrefix = 'magens';
+      $authProvider.loginUrl        = window.location.origin + '/userApi/userLogIn';
+      $authProvider.loginRedirect   = '/addVoters';
+      $authProvider.logoutRedirect  = '/login';
+      // $authProvider.loginUrl    = window.location.origin + '/votersApi/votersLogin';
+      $authProvider.signupUrl       = window.location.origin + '/userApi/userRegister';
+      $authProvider.tokenPrefix     = 'magens';
 
       $authProvider.facebook({
         clientId: '789445017793242',

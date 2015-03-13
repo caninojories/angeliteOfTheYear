@@ -31,7 +31,6 @@
         content: content,
         type: type || 'info',
         container: container || 'alert-info',
-        show: true
       });
 
       return strapAlert;

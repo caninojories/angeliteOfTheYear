@@ -44,19 +44,19 @@
       port: 3001,
       files: [config.client + '**/*.*', config.css],
       ghostMode: {
-        click: true,
+        click: false,
         location: false,
-        forms: true,
-        scroll: true,
+        forms: false,
+        scroll: false,
       },
-      injectChanges: true,
-      logFileChanges: true,
+      injectChanges: false,
+      logFileChanges: false,
       logLevel: 'debug',
       logPrefix: 'gulp-patterns',
-      notify: true,
+      notify: false,
       reloadDelay: 1000
     };
-    if(args.nosync || browserSync.active) {return;}
+    if(args.nosync || browserSync.active || true) {return;}
     logger(util, 'Starting browser-sync on port ' + config.defaultPort);
     gulp.watch([config.stylus], ['stylus'])
       .on('change', function(event) { changeEvent(event, util, logger, config); });

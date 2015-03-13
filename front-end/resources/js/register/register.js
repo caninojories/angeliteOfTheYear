@@ -49,7 +49,6 @@
       }
 
       function register(registerFormIsValid) {
-        console.log('jories');
         if (registerFormIsValid !== true) {return;}
 
         $auth.signup({

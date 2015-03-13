@@ -15,7 +15,6 @@
     } else {
       res.render('index.html');
     }
-
   });
 
   module.exports = router;

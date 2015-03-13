@@ -5,7 +5,14 @@
 
   /*Express Configuration*/
   module.exports = function(app) {
-    if (process.env.NODE_ENV === 'production') {
+    /*Setup for CORS*/
+    app.use(function(req, res, next) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+      next();
+    });
+    if (process.env.NODE_ENV === 'production' || node.environment === 'production') {
       node.nunjucksEnvBuild.express(app);
       node.nunjucks.configure(node.nunjucksPathBuild, {
         autoescape: true,
@@ -51,12 +58,13 @@
         return method;
       }
     }));
-    //app.use(node.passport.initialize());
+    app.use(node.passport.initialize());
 
     /*Environment Setup*/
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' || node.environment === 'production') {
       app.set('json spaces', 0);
       app.use('/css', node.express.static(node.buildCss));
+      app.use('/img', node.express.static(node.buildImg));
       app.use('/js', node.express.static(node.buildJs));
       app.use('/fonts', node.express.static(node.buildFonts));
       app.use('commons', node.express.static(node.commonViewsBuild));
@@ -72,24 +80,25 @@
     }
 
     app.use(function (req, res, next) {
-      var afterResponse = function() {
-        global.io.mongoose.connection.close(function () {
-          console.log('Mongoose connection disconnected');
+      var afterResponse = function(db) {
+        io.mongoose.connection.close(function (db) {
+          console.log('Mongoose connection disconnected upon close');
+          res.end();
+          console.log('end');
+          console.log(io.mongoose.connection.readyState);
         });
       };
-      res.on('finish', afterResponse);
-      res.on('close', afterResponse);
+      var disconnectAsync = function() {
+        res.end();
+        // io.mongoose.disconnectAsync(function() {
+        //   console.log('Mongoose connection disconnected upon disconnect');
+        //   afterResponse();
+        // });
+      };
+      res.on('finish', disconnectAsync);
+      // res.on('close', afterResponse);
 
       next();
     });
-
-    /*Setup for CORS*/
-    app.use(function(req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
-      next();
-    });
-
   };
 }());

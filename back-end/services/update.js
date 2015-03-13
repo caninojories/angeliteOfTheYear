@@ -14,8 +14,8 @@
         return result;
       })
       .then(function(result) {
-        result.save(function() {
-          if(options.count) {return 'jories';}
+        result.save(function(err) {
+          if (err) {return;}
           options.res.json('success');
         });
       });

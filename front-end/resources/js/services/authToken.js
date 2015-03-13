@@ -16,7 +16,7 @@
     var authUserToken = {
       setToken: function(token) {
         cachedToken = token;
-        storage.setItem('userToken', token);
+        storage.setItem(userToken, token);
       },
       getToken: function() {
         if (!cachedToken) {

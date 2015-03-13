@@ -1,14 +1,19 @@
+
+
 <section class="votersLogin">
+  <div ng-show="vm.joriesStudentNumber">
+    <section ng-include="'commons/header.html'"></section>
+  </div>
   <div class=container>
     <div class="col-sm-8">
-      <alert-info text-center></alert-info>
+      <alert-voters-login text-center></alert-voters-login>
     </div>
   </div>
   <div class="center">
-    <form name="votersLoginForm" ng-submit="vm.votersLogin()">
+    <form name="votersLoginForm" ng-submit="vm.votersLogin(votersLoginForm)">
       <div class="form-group">
         <label type="text" for="inputHelpBlock" class="inputHelpBlock">Student/Employee No:.</label>
-        <input type="text" class="form-control" name="votersId" aria-describedby="helpBlock" ng-model="vm.votersId">
+        <input type="text" class="form-control" id="votersId" name="votersId" autofocus aria-describedby="helpBlock" ng-model="vm.votersId">
       </div>
       <input type="submit" class="btn btn-success" value="Log-in"/>
     </form>

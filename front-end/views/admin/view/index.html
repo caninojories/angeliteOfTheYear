@@ -1,1 +1,56 @@
-Sample View
+<section ng-include="'commons/header.html'"></section>
+<div class="container">
+  <h3 class='text-center'>Non-Teaching Category</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Ma. Victoria Pineda</th>
+        <th>Maricris Simbulan</th>
+        <th>Jocelyn Villavicencio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ng-repeat="nonTeaching in vm.votersResult.nonTeaching">{{nonTeaching.vote}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h3 class='text-center'>Student Category</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Erika Jeana Cariño</th>
+        <th>Jay Arcie Carreon</th>
+        <th>Nikolai Cayanan</th>
+        <th>Kathleen Kaye Tiglao</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ng-repeat="student in vm.votersResult.student">{{student.vote}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h3 class='text-center'>ORG Category</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>IIEE</th>
+        <th>JPIA</th>
+        <th>MANSOC</th>
+        <th>PSME</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ng-repeat="org in vm.votersResult.org">{{org.vote}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

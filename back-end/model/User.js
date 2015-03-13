@@ -15,7 +15,11 @@
     lastName: String,
     googleId: String,
     facebookId: String,
-    displayName: String
+    displayName: String,
+    accessType: {
+      type: String,
+      default: 'local'
+    }
   });
 
   UserSchema.pre('save', function(next) {

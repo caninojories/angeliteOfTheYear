@@ -4,6 +4,7 @@
   var app = io.express(),
 
       GETVOTERESULT   = require('../adminApImplementation/voters/getIndex.js'),
+      GETCOUNT   = require('../adminApImplementation/voters/getIndex.js'),
       POSTADDVOTERS   = require('../adminApImplementation/voters/postIndex.js'),
       POSTVOTERLOGIN  = require('../adminApImplementation/voters/postIndex.js'),
       PUTVOTERSUBMIT  = require('../adminApImplementation/voters/putIndex.js');
@@ -19,6 +20,9 @@
 
   app.route('/votersResult')
     .get(GETVOTERESULT.votersResult);
+
+  app.route('/count')
+    .get(GETCOUNT.count);
 
   module.exports = app;
 }());

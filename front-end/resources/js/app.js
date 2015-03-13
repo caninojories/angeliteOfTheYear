@@ -21,9 +21,15 @@
          * Feature areas
          */
         //'app.avengers',
-        'app.main',
-        'app.sample',
         'app.addVoters',
-        'app.view'
+        'app.index',
+        'app.nonTeaching',
+        'app.org',
+        'app.sample',
+        'app.student',
+        'app.teaching',
+        'app.thankYou',
+        'app.view',
+        'app.votersLogin'
     ]);
 })();

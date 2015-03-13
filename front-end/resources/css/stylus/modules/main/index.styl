@@ -1,7 +1,29 @@
 .main {
-  // .well {
-  //   background-color: #e67e22;
-  // }
+  background-color: #ecf0f1;
+  .submit{
+    position: fixed;
+    left: 0;
+    top: 40%;
+    z-index: 100;
+    button {
+      border-radius: 0;
+    }
+  }
+  .submit.ng-hide-add.ng-hide-add-active,
+  .submit.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear .5s;
+    transition: all linear .5s;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .submit.ng-hide {
+      position: fixed
+      top: 40%;
+      left: 1024px;
+      opacity: 0.5;
+    }
+  }
+
   .row-centered {
     text-align:center;
   }
@@ -15,25 +37,25 @@
   }
   .frame {
     background-color: #e67e22;
-    h3, p {
+    h5, p {
       color: #fff;
     }
   }
   .nonTeaching {
     background-color: #e74c3c;
-    h3, p {
+    h5, p {
       color: #fff;
     }
   }
   .student {
     background-color: #d35400;
-    h3, p {
+    h5, p {
       color: #fff;
     }
   }
   .org {
     background-color: #c0392b;
-    h3, p {
+    h5, p {
       color: #fff;
     }
   }

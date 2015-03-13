@@ -8,10 +8,6 @@
       type: String,
       unique: true
     },
-    teaching: {
-      type: String,
-      default: null
-    },
     nonTeaching: {
       type: String,
       default: null
@@ -24,6 +20,10 @@
       type: String,
       default: null
     },
+    accessType: {
+      type: String,
+      default: 'local'
+    }
   });
 
   VoterSchema.statics.teachingResult = function (name, cb) {

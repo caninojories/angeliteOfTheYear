@@ -5,25 +5,25 @@
     .module('app.view')
     .controller('View', View);
 
-    View.$inject = ['$q', 'result', 'commonsDataService', 'votersServiceApi'];
-
-    function View($q, result, commonsDataService, votersServiceApi) {
+    View.$inject = ['$q', 'commonsDataService', 'votersServiceApi'];
+    /* @ngInject */
+    function View($q, commonsDataService, votersServiceApi) {
       var vm = this;
 
-      //console.log(result);
-      // function getVotersResult() {
-      //   return $q.all([getVotersResultCallback()])
-      //     .then(function(response) {
-      //       return response;
-      //     });
-      // }
-      //
-      // function getVotersResultCallback() {
-      //   return commonsDataService
-      //     .httpGETLIST('votersResult', {}, votersServiceApi)
-      //     .then(function(response) {
-      //       return response;
-      //     });
-      // }
+      getVotersResult();
+      function getVotersResult() {
+        return $q.all([getVotersNonTeaching()])
+          .then(function(response) {
+            vm.votersResult = response[0];
+          });
+      }
+
+      function getVotersNonTeaching() {
+        return commonsDataService
+          .httpGET('count', {}, votersServiceApi)
+          .then(function(response) {
+            return response;
+          });
+      }
     }
 }());

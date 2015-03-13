@@ -15,13 +15,14 @@
   /*Start our Express Server*/
   var app = io.express();
 
-  /*Require our Configuration Files*/
+  // /*Require our Configuration Files*/
   require('./configuration/express')(app);
-  //require('./configuration/passport')(io.passport);
+  require('./configuration/passport')(io.passport);
 
   /*Routes*/
   io.useApp(app);
   io.useApi(app);
+  app.use(afterResponse);
   app.use('*', catchAll);
 
   /*.cluster Configuration*/
@@ -31,5 +32,21 @@
       console.log(io.chalk.red.reset.underline('listening to port ') +
       io.chalk.cyan.bold((io.port)));
     });
+  }
+
+  function afterResponse(req, res, next) {
+    var response = function(db) {
+      io.mongoose.connection.close(function (db) {
+        console.log('Mongoose connection disconnected upon close');
+      });
+    };
+    var disconnectAsync = function() {
+      io.mongoose.disconnectAsync(function() {
+        console.log('Mongoose connection disconnected upon disconnect');
+        response();
+      });
+    };
+    res.on('finish', disconnectAsync);
+    next();
   }
 }());

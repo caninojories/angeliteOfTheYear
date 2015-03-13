@@ -5,9 +5,9 @@
     .module('app.widgets')
     .directive('tabSwitches', tabSwitches);
 
-    tabSwitches.$inject = ['$scrollspy'];
+    tabSwitches.$inject = ['$rootScope', '$scrollspy', '$q', 'commonsDataService', 'votersServiceApi'];
     /* @ngInject */
-    function tabSwitches($scrollspy) {
+    function tabSwitches($rootScope, $scrollspy, $q, commonsDataService, votersServiceApi) {
       var directive = {
         restrict: 'AEC',
         link: link
@@ -31,6 +31,34 @@
                 }
               }
             }
+          scope.$broadcast('model');
+
+
+            //console.log(attrs.ngModel);
+            // scope.$watch(attrs.ngModel, function() {
+            //   if (!scope.$$phase && !scope.$root.$$phase){
+            //     scope.$apply(function() {
+            //       $rootScope[attrs.ngModel] = scope[attrs.ngModel];
+            //     });
+            //   }
+            // });
+            // if (attrs.category === 'nonTeaching') {
+            //   console.log(scope[attrs.name]);
+            //   $q.all([votersNonTeachingCallback()])
+            //     .then(function(response) {
+            //       return response;
+            //     });
+            // }
+            //
+            // function votersNonTeachingCallback() {
+            //   return commonsDataService
+            //     .httpPUT('votersSubmit', {
+            //       nonTeaching : scope[attrs.name],
+            //     }, votersServiceApi)
+            //     .then(function(response) {
+            //       return response;
+            //     });
+            // }
         });
       }
     }

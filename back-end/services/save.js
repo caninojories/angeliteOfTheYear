@@ -4,6 +4,7 @@
   exports.all = function(options) {
     var document = io[options.name](options.details);
       document.save(function(error) {
+        console.log(error);
         if(error) {return options.res.json(403, 'Forbidden');}
         if(options.done) {return options.done(null, document);}
         else {options.res.json('success');}

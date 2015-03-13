@@ -10,4 +10,14 @@
     io.mongoDB(io.config.dbName)
       .then(io.get.findList(options));
   };
+
+  exports.count = function(req, res, next) {
+    var options = {
+      name: 'Voter',
+      res : res
+    };
+
+    io.mongoDB(io.config.dbName)
+      .then(io.get.findAndCount(options));
+  };
 }());

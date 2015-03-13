@@ -13,10 +13,8 @@
     };
     return service;
 
-    function catcher(message) {
-      return function(reason) {
-        logger.error(message, reason);
-      };
+    function catcher(message, data, title) {
+      logger.error(message, data, title);
     }
   }
 })();

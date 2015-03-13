@@ -9,14 +9,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand ion ion-ios-home" ui-sref='main' ui-sref-active="active"></a>
+        <a class="navbar-brand ion ion-ios-home" ui-sref='view' ui-sref-active="active"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-left">
           <li ui-sref-active="active">
-            <a ui-sref="sample"> Sample </a>
+            <a ui-sref="addVoters" target="_self">Add Voters</a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="view" target="_self">View Result</a>
           </li>
         </ul>
         <ul class='nav navbar-nav navbar-right' ng-controller='Register as vm'>
@@ -31,7 +34,7 @@
             </a>
           </li>
           <li ng-show='vm.isAuthenticated()' class="logout" ng-controller="Login as vm">
-            <a href='#' ng-click='vm.logOut()' data-animation="am-fade-and-scale" data-placement="center" ng-cloak>
+            <a href='#' ng-click='vm.logOut()' data-animation="am-fade-and-scale" target="_self" data-placement="center" ng-cloak>
               <i class="ion ion-log-out" title="Logout"></i>
             </a>
           </li>
