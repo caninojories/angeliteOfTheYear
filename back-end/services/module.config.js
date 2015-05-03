@@ -28,6 +28,7 @@
     useAppConfig      : require('./useApp.config'),
     useApi            : require('./useApi'),
     useApiConfig      : require('./useApi.config'),
+    async             : require('async'),
     bodyParser        : require('body-parser'),
     chalk             : require('chalk'),
     cluster           : require('cluster'),
@@ -55,7 +56,7 @@
     url               : require('url'),
 
     port              : process.env.PORT || 3000,
-    environment       : process.env.NODE_ENV || 'production',
+    environment       : process.env.NODE_ENV || 'development',
 
     faviconPath       : rootPath + 'front-end/resources/favicon.ico',
     nunjucksPath      : path.join(rootPath, 'front-end/views'),

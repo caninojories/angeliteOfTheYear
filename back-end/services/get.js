@@ -37,45 +37,64 @@
 
 
   exports.findAndCount = function(options, name) {
-    var nonTeachingData = {
-      nonTeaching: [],
-      student: [],
-      org: []
-    };
-
-    io[options.name].find( {nonTeaching :  'Ma. Victoria Pineda'}).count(function(err, count) {
-      nonTeachingData.nonTeaching.push({name: 'Ma. Victoria Pineda', vote: count});
-      io[options.name].find( {nonTeaching : 'Maricris Simbulan'}).count(function(err, count) {
-        nonTeachingData.nonTeaching.push({name: 'Maricris Simbulan', vote: count});
-        io[options.name].find( {nonTeaching : 'Jocelyn Villavicencio'}).count(function(err, count) {
-          nonTeachingData.nonTeaching.push({name: 'Jocelyn Villavicencio', vote: count});
-          io[options.name].find( {student : 'Erika Jeana Cariño'}).count(function(err, count) {
-            nonTeachingData.student.push({name: 'Erika Jeana Cariño', vote: count});
-            io[options.name].find( {student : 'Jay Arcie Carreon'}).count(function(err, count) {
-              nonTeachingData.student.push({name: 'Jay Arcie Carreon', vote: count});
-              io[options.name].find( {student : 'Nikolai Cayanan'}).count(function(err, count) {
-                nonTeachingData.student.push({name: 'Nikolai Cayanan', vote: count});
-                io[options.name].find( {student : 'Kathleen Kaye Tiglao'}).count(function(err, count) {
-                  nonTeachingData.student.push({name: 'Kathleen Kaye Tiglao', vote: count});
-                  io[options.name].find( {org : 'IIEE'}).count(function(err, count) {
-                    nonTeachingData.org.push({name: 'IIEE', vote: count});
-                    io[options.name].find( {org : 'JPIA'}).count(function(err, count) {
-                      nonTeachingData.org.push({name: 'JPIA', vote: count});
-                      io[options.name].find( {org : 'MANSOC'}).count(function(err, count) {
-                        nonTeachingData.org.push({name: 'MANSOC', vote: count});
-                        io[options.name].find( {org : 'PSME'}).count(function(err, count) {
-                          nonTeachingData.org.push({name: 'PSME', vote: count});
-                          options.res.json(nonTeachingData);
-                        });
-                      });
-                    });
-                  });
-                });
-              });
+    io.async.series([
+      function(callback){
+        var nonTeaching = ['Ma. Victoria Pineda', 'Maricris Simbulan', 'Jocelyn Villavicencio'];
+        var nonTeachingDatas = {
+          nonTeaching: []
+        };
+        var counter = 0;
+        for(var i = 0; i < nonTeaching.length; i++) {
+          io[options.name]
+            .find({nonTeaching :  nonTeaching[i]})
+            .count(function(err, count) {
+              nonTeachingDatas.nonTeaching.push({name: nonTeaching[counter], vote: count});
+              if (counter === nonTeaching.length - 1) {
+                callback(null, nonTeachingDatas);
+              }
+              counter++;
             });
-          });
-        });
-      });
-    });
+        }
+      },
+      function(callback){
+        var student = ['Erika Jeana Cariño', 'Jay Arcie Carreon', 'Nikolai Cayanan', 'Kathleen Kaye Tiglao'];
+        var studentData = {
+          student: []
+        };
+        var counter = 0;
+        for(var i = 0; i < student.length; i++) {
+          io[options.name]
+            .find({student :  student[i]})
+            .count(function(err, count) {
+              studentData.student.push({name: student[counter], vote: count});
+              if (counter === student.length - 1) {
+                callback(null, studentData);
+              }
+              counter++;
+            });
+        }
+      },
+      function(callback){
+        var org = ['IIEE', 'JPIA', 'MANSOC', 'PSME'];
+        var orgData = {
+          org: []
+        };
+        var counter = 0;
+        for(var i = 0; i < org.length; i++) {
+          io[options.name]
+            .find({org :  org[i]})
+            .count(function(err, count) {
+              orgData.org.push({name: org[counter], vote: count});
+              if (counter === org.length - 1) {
+                callback(null, orgData);
+              }
+              counter++;
+            });
+        }
+      }],
+      function(err, results){
+        options.res.json(results);
+      }
+    );
   };
 }());

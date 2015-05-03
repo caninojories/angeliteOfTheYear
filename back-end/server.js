@@ -9,13 +9,13 @@
 
   var  catchAll  = require('./routes');
 
-  /*Configuration File NoSQL Database*/
+  /** Configuration File NoSQL Database **/
   require('./configuration/mongodb'); //mongodb integration
 
-  /*Start our Express Server*/
+  /** Start our Express Server* */
   var app = io.express();
 
-  // /*Require our Configuration Files*/
+  /** Require our Configuration Files **/
   require('./configuration/express')(app);
   require('./configuration/passport')(io.passport);
 
@@ -23,9 +23,8 @@
   io.useApp(app);
   io.useApi(app);
   app.use(afterResponse);
-  app.use('*', catchAll);
 
-  /*.cluster Configuration*/
+  /** cluster Configuration **/
   if (io.cluster.isMaster) {io.clusterService();}
   else {
     app.listen(io.port, function() {

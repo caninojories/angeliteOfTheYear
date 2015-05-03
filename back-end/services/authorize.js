@@ -7,7 +7,6 @@
     } else {
       req.isAuthenticated = false;
     }
-
     next();
   };
 }());

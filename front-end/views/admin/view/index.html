@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr>
-        <td ng-repeat="nonTeaching in vm.votersResult.nonTeaching">{{nonTeaching.vote}}</td>
+        <td ng-repeat="nonTeaching in vm.votersResult[0].nonTeaching">{{nonTeaching.vote}}</td>
       </tr>
     </tbody>
   </table>
@@ -30,7 +30,7 @@
     </thead>
     <tbody>
       <tr>
-        <td ng-repeat="student in vm.votersResult.student">{{student.vote}}</td>
+        <td ng-repeat="student in vm.votersResult[1].student">{{student.vote}}</td>
       </tr>
     </tbody>
   </table>
@@ -49,7 +49,7 @@
     </thead>
     <tbody>
       <tr>
-        <td ng-repeat="org in vm.votersResult.org">{{org.vote}}</td>
+        <td ng-repeat="org in vm.votersResult[2].org">{{org.vote}}</td>
       </tr>
     </tbody>
   </table>
